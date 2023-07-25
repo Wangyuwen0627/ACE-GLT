@@ -12,9 +12,11 @@ Specifically, we propose an *adversarial complementary erasing* (ACE) framework 
 </div>
 
 ## Prerequisites
-
+### Install dependencies
+See `requirment.txt` file for more information about how to install the dependencies.
 
 ## Usage
+Please follow the instructions below to replicate the results in the paper.
 ```
 # baseline(non-pruned cases)
 python baseline.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --backbone <backbone>
