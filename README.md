@@ -8,8 +8,9 @@ However, the winning GLTs in existing studies are obtained by applying iterative
 In this paper, we formulate a conjecture, i.e., existing overlooked valuable information in the pruned graph connections and model parameters which can be re-grouped into GLT to enhance the final performance.
 Specifically, we propose an *adversarial complementary erasing* (ACE) framework to explore the valuable information from the pruned components, thereby developing a more powerful GLT, referred to as the **ACE-GLT**. The main idea is to mine valuable information from pruned edges/weights after each round of IMP, and employ the ACE technique to refine the GLT processing. Finally, experimental results demonstrate that our ACE-GLT outperforms existing methods for searching GLT in diverse tasks.
 <div align="center">
-<img src="htt" width="50%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/master/Figs/method.png" width="50%">
 </div>
+
 ## Prerequisites
 
 
