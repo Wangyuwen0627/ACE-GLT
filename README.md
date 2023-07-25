@@ -1,4 +1,6 @@
 # [ECAI 2023] Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets
+[![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](LICENSE)
+
 Official codebase for paper [Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets](https://arxiv.org/abs/xxx.xxxx). This codebase is based on the open-source [DGL](https://docs.dgl.ai/) framework and please refer to that repo for more documentation.
 
 ## Overview
