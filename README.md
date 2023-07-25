@@ -7,7 +7,11 @@ Graph Lottery Ticket (GLT), a combination of core subgraph and sparse subnetwork
 However, the winning GLTs in existing studies are obtained by applying iterative magnitude-based pruning (IMP) without re-evaluating and re-considering the pruned information, which disregards the dynamic changes in the significance of edges/weights during graph/model structure pruning, and thus limits the appeal of the winning tickets. 
 In this paper, we formulate a conjecture, i.e., existing overlooked valuable information in the pruned graph connections and model parameters which can be re-grouped into GLT to enhance the final performance.
 Specifically, we propose an *adversarial complementary erasing* (ACE) framework to explore the valuable information from the pruned components, thereby developing a more powerful GLT, referred to as the **ACE-GLT**. The main idea is to mine valuable information from pruned edges/weights after each round of IMP, and employ the ACE technique to refine the GLT processing. Finally, experimental results demonstrate that our ACE-GLT outperforms existing methods for searching GLT in diverse tasks.
+<div align="center">
+<img src="" width="50%">
+</div>
 ## Prerequisites
+
 
 ## Usage
 ```
