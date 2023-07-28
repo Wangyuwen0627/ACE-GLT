@@ -1,4 +1,6 @@
 import os
+import time
+
 from scipy import spatial
 os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 import argparse
@@ -287,6 +289,8 @@ if __name__ == "__main__":
     acc_reverse = []
     model_sparsity = []
     model_sparsity_adv = []
+    start = time.clock()
+    previous_round = time.clock()
     with open(filename, "w") as f:
         for p in range(20):
             final_mask_dict, rewind_weight = run_get_mask(args, seed, p, rewind_weight)
@@ -297,6 +301,9 @@ if __name__ == "__main__":
             print("=" * 120)
             rewind_weight_pass = copy.deepcopy(rewind_weight)
             best_acc_val, final_acc_test, final_epoch_list, adj_spar, wei_spar = adv_train(args, seed, rewind_weight_pass)
+            round_time = time.clock()
+            print("round--{}: running time--{}s".format(p, round_time-previous_round))
+            previous_round = copy.deepcopy(round_time)
             print("Adv-GLT : Sparsity:[{}], Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] Adj:[{:.2f}%] Wei:[{:.2f}%]"
                   .format(p + 1, best_acc_val * 100, final_epoch_list, final_acc_test * 100, adj_spar, wei_spar))
             model_sparsity_adv.append(100 - wei_spar)

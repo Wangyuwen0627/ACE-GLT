@@ -1,4 +1,6 @@
 import os
+import time
+
 import dgl
 os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 import argparse
@@ -113,7 +115,6 @@ def run_baseline_gat(args, seed):
     adj = load_adj_raw(args['dataset'])
 
     node_num = features.size()[0]
-    class_num = labels.numpy().max() + 1
 
     g = dgl.DGLGraph()
     g.add_nodes(node_num)
@@ -123,7 +124,7 @@ def run_baseline_gat(args, seed):
     labels = labels.cuda()
     g = g.to(device=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
     loss_func = nn.CrossEntropyLoss()
-    net_gat = net.net_gat(args['embedding_dim'], g)
+    net_gat = net.net_gat_baseline(args['embedding_dim'], g)
     g.add_edges(list(range(node_num)), list(range(node_num)))
     net_gat = net_gat.cuda()
     optimizer = torch.optim.Adam(net_gat.parameters(), lr=args['lr'], weight_decay=args['weight_decay'])
@@ -175,6 +176,7 @@ if __name__ == "__main__":
     print(args)
     seed_dict = {'cora': 2377, 'citeseer': 4428, 'pubmed': 3333}
     seed = seed_dict[args['dataset']]
+    start = time.clock()
     if args['backbone'] == 'gcn':
         best_acc_val, final_acc_test, final_epoch_list = run_baseline_gcn(args, seed)
     elif args['backbone'] == 'gin':
@@ -185,3 +187,5 @@ if __name__ == "__main__":
     print("syd : Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}]"
           .format(best_acc_val * 100, final_epoch_list, final_acc_test * 100, ))
     print("=" * 120)
+    end = time.clock()
+    print("run time: ", end-start)

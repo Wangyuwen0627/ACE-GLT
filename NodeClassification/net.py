@@ -8,7 +8,6 @@ import pdb
 import copy
 import utils
 import dgl.function as fn
-
 msg_mask = fn.src_mul_edge('h', 'mask', 'm')
 msg_orig = fn.copy_u('h', 'm')
 
