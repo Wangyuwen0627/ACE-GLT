@@ -10,7 +10,7 @@ However, the winning GLTs in existing studies are obtained by applying iterative
 In this paper, we formulate a conjecture, i.e., existing overlooked valuable information in the pruned graph connections and model parameters which can be re-grouped into GLT to enhance the final performance.
 Specifically, we propose an *adversarial complementary erasing* (ACE) framework to explore the valuable information from the pruned components, thereby developing a more powerful GLT, referred to as the **ACE-GLT**. The main idea is to mine valuable information from pruned edges/weights after each round of IMP, and employ the ACE technique to refine the GLT processing. Finally, experimental results demonstrate that our ACE-GLT outperforms existing methods for searching GLT in diverse tasks.
 <div align="center">
-<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/master/Figs/method.png" width="100%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/method.png" width="100%">
 </div>
 
 ## Prerequisites
@@ -31,7 +31,7 @@ python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [
 ```
 
 <div align="center">
-<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/master/Figs/small_scale.png" width="100%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/small_scale.png" width="100%">
 </div>
 
 ### Large-scale datasets
@@ -45,7 +45,7 @@ python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --us
 ```
 
 <div align="center">
-<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/master/Figs/large_scale.png" width="100%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="100%">
 </div>
 
 ## Citation
