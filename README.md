@@ -1,5 +1,6 @@
 # [ECAI 2023] Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets
 [![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2211.12712-b31b1b.svg)](https://arxiv.org/abs/2308.02916)
 
 Official codebase for paper [Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets](https://arxiv.org/abs/xxx.xxxx). This codebase is based on the open-source [DGL](https://docs.dgl.ai/) framework and please refer to that repo for more documentation.
 
@@ -26,8 +27,8 @@ python small_scale/baseline.py --dataset <dataset> --embedding-dim <feature_dim 
 
 # ACE-GLT
 python small_scale/glt_gcn.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
-python small_scale/glt_gin.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3
-python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3
+python small_scale/glt_gin.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
 ```
 
 <div align="center">
@@ -49,5 +50,18 @@ python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --us
 </div>
 
 ## Citation
+If you find this work useful for your research, please cite our paper:
+
+```
+@article{wang2023adversarial,
+      title={Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Ticket}, 
+      author={Yuwen Wang and Shunyu Liu and Kaixuan Chen and Tongtian Zhu and Ji Qiao and Mengjie Shi and Yuanyu Wan and Mingli Song},
+      journal={arXiv preprint arXiv:2308.02916},
+      year={2023},
+}
+```
+
+## Contact
+Please feel free to contact me via email (<yuwenwang@zju.edu.cn>) if you have any questions about our work.
 
 

@@ -293,6 +293,7 @@ def parser_loader():
     parser.add_argument('--pruning_percent_adj', type=float, default=0.1)
     parser.add_argument('--dataset', type=str, default='')
     parser.add_argument('--filename', type=str, default='Result/test.py')
+    parser.add_argument('--init_soft_mask_type', type=str, default='', help='all_one, kaiming, normal, uniform')
     parser.add_argument('--embedding-dim', nargs='+', type=int, default=[3703, 16, 6])
     parser.add_argument('--lr', type=float, default=0.01)
     parser.add_argument('--weight-decay', type=float, default=5e-4)
