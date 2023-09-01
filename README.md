@@ -20,19 +20,20 @@ See `requirement.txt` file for more information about how to install the depende
 
 ## Usage
 Please follow the instructions below to replicate the results in the paper.
+
 ### Small-scale datasets
 ```bash
 # baseline (non-pruned cases)
-python small_scale/baseline.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --backbone <backbone>
+python small_scale/baseline.py --dataset <DATASET> --embedding-dim <feature_dim [hidden_dims] output_dims> --backbone <backbone>
 
 # ACE-GLT (GCN)
-python small_scale/glt_gcn.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
+python small_scale/glt_gcn.py --dataset <DATASET> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
 
 # ACE-GLT (GIN)
-python small_scale/glt_gin.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+python small_scale/glt_gin.py --dataset <DATASET> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
 
 # ACE-GLT (GAT)
-python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+python small_scale/glt_gat.py --dataset <DATASET> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
 ```
 
 <div align="center">
@@ -42,7 +43,7 @@ python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [
 ### Large-scale datasets
 ```bash
 # baseline (non-pruned cases)
-python large_scale/<dataset>/baseline.py
+python large_scale/<DATASET>/baseline.py
 
 # ACE-GLT (OGBN-arxiv)
 python large_scale/ogbn-arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
@@ -52,7 +53,7 @@ python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --us
 ```
 
 <div align="center">
-<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="100%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="65%">
 </div>
 
 ## Citation
