@@ -44,10 +44,10 @@ python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [
 # baseline (non-pruned cases)
 python large_scale/<dataset>/baseline.py
 
-# ACE-GLT (ogbn-arxiv)
+# ACE-GLT (OGBN-arxiv)
 python large_scale/ogbn-arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
 
-# ACE-GLT (/ogbn-proteins)
+# ACE-GLT (OGBN-proteins)
 python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --use_one_hot_encoding --learn_t --num_layers 28 --s1 1e-1 --s2 1e-3 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
 ```
 
