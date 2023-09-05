@@ -36,21 +36,30 @@ python small_scale/glt_gin.py --dataset <DATASET> --embedding-dim <feature_dim [
 python small_scale/glt_gat.py --dataset <DATASET> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
 ```
 
+Parameters:
+
+* `--backbone` : `'gcn'` or `'gin'` or `'gat'`
+* `--dataset` : `'cora'` or `'citeseer'` or `'pubmed'`
+
 <div align="center">
 <img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/small_scale.png" width="100%">
 </div>
 
 ### Large-scale datasets
 ```bash
-# baseline (non-pruned cases)
-python large_scale/<DATASET>/baseline.py
+# baseline (OGBN-arxiv)
+python large_scale/ogbn_arxiv/baseline.py
+
+# baseline (OGBN-proteins)
+python large_scale/ogbn_proteins/baseline.py
 
 # ACE-GLT (OGBN-arxiv)
-python large_scale/ogbn-arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
+python large_scale/ogbn_arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
 
 # ACE-GLT (OGBN-proteins)
-python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --use_one_hot_encoding --learn_t --num_layers 28 --s1 1e-1 --s2 1e-3 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
+python large_scale/ogbn_proteins/glt_resgcn.py --use_gpu --conv_encode_edge --use_one_hot_encoding --learn_t --num_layers 28 --s1 1e-1 --s2 1e-3 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
 ```
+
 
 <div align="center">
 <img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="65%">
