@@ -26,9 +26,9 @@ Please follow the instructions below to replicate the results in the paper.
 python small_scale/baseline.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --backbone <backbone>
 
 # ACE-GLT
-python small_scale/glt_gcn.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
-python small_scale/glt_gin.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
-python small_scale/glt_gat.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+python small_scale/glt_gcn.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
+python small_scale/glt_gin.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+python small_scale/glt_gat.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
 ```
 
 <div align="center">

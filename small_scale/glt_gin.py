@@ -291,6 +291,20 @@ if __name__ == "__main__":
     seed_dict = {'cora': 2377, 'citeseer': 4428, 'pubmed': 3333}
     seed = seed_dict[args['dataset']]
     filename = args['filename']
+    if args['dataset'] == 'cora':
+        args['embedding-dim'] = [1433, 512, 7]
+        args['lr'] = 0.008
+        args['weight-decay'] = 8e-5
+    elif args['dataset'] == 'citeseer':
+        args['embedding-dim'] = [3703, 512, 6]
+        args['lr'] = 0.01
+        args['weight-decay'] = 5e-4
+    elif args['dataset'] == 'pubmed':
+        args['embedding-dim'] = [512, 256, 3]
+        args['lr'] = 0.01
+        args['weight-decay'] = 5e-4
+    else:
+        raise Exception("Invalid dataset")
     rewind_weight = None
     with open(filename, "w") as f:
         for imp in range(1, 21):

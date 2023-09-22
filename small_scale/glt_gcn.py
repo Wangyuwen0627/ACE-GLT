@@ -280,7 +280,7 @@ def parser_loader():
     ###### Others settings #######
     parser.add_argument('--dataset', type=str, default='citeseer')
     parser.add_argument('--filename', type=str, default='Result/test.txt')
-    parser.add_argument('--embedding-dim', nargs='+', type=int, default=[3703, 16, 6])
+    parser.add_argument('--embedding-dim', nargs='+', type=int)
     parser.add_argument('--lr', type=float, default=0.01)
     parser.add_argument('--weight-decay', type=float, default=5e-4)
     parser.add_argument('--epochs', type=int, default=200)
@@ -294,6 +294,20 @@ if __name__ == "__main__":
     seed_dict = {'cora': 2377, 'citeseer': 4428, 'pubmed': 3333}
     seed = seed_dict[args['dataset']]
     filename = args['filename']
+    if args['dataset'] == 'cora':
+        args['embedding_dim'] = [1433, 512, 7]
+        args['lr'] = 0.008
+        args['weight_decay'] = 8e-5
+    elif args['dataset'] == 'citeseer':
+        args['embedding_dim'] = [3703, 512, 6]
+        args['lr'] = 0.01
+        args['weight_decay'] = 5e-4
+    elif args['dataset'] == 'pubmed':
+        args['embedding_dim'] = [512, 256, 3]
+        args['lr'] = 0.01
+        args['weight_decay'] = 5e-4
+    else:
+        raise Exception("Invalid dataset")
     rewind_weight = None
     with open(filename, "w") as f:
         for imp in range(0, 20):
