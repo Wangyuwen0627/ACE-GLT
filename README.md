@@ -2,7 +2,7 @@
 [![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-2308.02916-b31b1b.svg)](https://arxiv.org/abs/2308.02916)
 
-Official codebase for paper [Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets](https://arxiv.org/abs/xxx.xxxx). This codebase is based on the open-source [DGL](https://docs.dgl.ai/) framework and please refer to that repo for more documentation.
+Official codebase for paper [Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Tickets](https://arxiv.org/abs/2308.02916). This codebase is based on the open-source [DGL](https://docs.dgl.ai/) framework and please refer to that repo for more documentation.
 
 ## Overview
 **Abstract:**
@@ -20,44 +20,54 @@ See `requirement.txt` file for more information about how to install the depende
 
 ## Usage
 Please follow the instructions below to replicate the results in the paper.
-### Small-scale datasets
-```
-# baseline (non-pruned cases)
-python small_scale/baseline.py --dataset <dataset> --embedding-dim <feature_dim [hidden_dims] output_dims> --backbone <backbone>
 
-# ACE-GLT
-python small_scale/glt_gcn.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
-python small_scale/glt_gin.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
-python small_scale/glt_gat.py --dataset <dataset> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+### Small-scale datasets
+```bash
+# baseline (non-pruned cases)
+python small_scale/baseline.py --backbone <BACKBONE> --dataset <DATASET>  --embedding-dim <feature_dim [hidden_dims] output_dims> 
+
+# ACE-GLT (GCN)
+python small_scale/glt_gcn.py --dataset <DATASET> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
+
+# ACE-GLT (GIN)
+python small_scale/glt_gin.py --dataset <DATASET> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-3 --s2 1e-3 --init_soft_mask_type all_one
+
 ```
+
+Parameters:
+
+* `--backbone` : `'gcn'` or `'gin'` or `'gat'`
+* `--dataset` : `'cora'` or `'citeseer'` or `'pubmed'`
 
 <div align="center">
 <img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/small_scale.png" width="100%">
 </div>
 
 ### Large-scale datasets
-```
-# baseline (non-pruned cases)
-python large_scale/<dataset>/baseline.py
+```bash
+# baseline (OGBN-arxiv)
+python large_scale/ogbn_arxiv/baseline.py
 
-# ACE-GLT
-python large_scale/ogbn-arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
-python large_scale/ogbn-proteins/glt_resgcn.py --use_gpu --conv_encode_edge --use_one_hot_encoding --learn_t --num_layers 28 --s1 1e-1 --s2 1e-3 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
+# baseline (OGBN-proteins)
+python large_scale/ogbn_proteins/baseline.py
+
+# ACE-GLT (OGBN-arxiv)
+python large_scale/ogbn_arxiv/glt_resgcn.py --use_gpu --self_loop --learn_t --num_layers 28 --block res+ --gcn_aggr softmax_sg --t 0.1 --s1 1e-6 --s2 1e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 250 --fix_epochs 500 --model_save_path IMP
 ```
 
 <div align="center">
-<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="100%">
+<img src="https://github.com/Wangyuwen0627/ACE-GLT/blob/main/Figs/large_scale.png" width="65%">
 </div>
 
 ## Citation
 If you find this work useful for your research, please cite our paper:
 
 ```
-@article{wang2023adversarial,
+@inproceedings{wang2023ACEGLT,
       title={Adversarial Erasing with Pruned Elements: Towards Better Graph Lottery Ticket}, 
       author={Yuwen Wang and Shunyu Liu and Kaixuan Chen and Tongtian Zhu and Ji Qiao and Mengjie Shi and Yuanyu Wan and Mingli Song},
-      journal={arXiv preprint arXiv:2308.02916},
-      year={2023},
+      booktitle={European Conference on Artificial Intelligence},
+      year={2023}
 }
 ```
 
