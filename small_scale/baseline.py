@@ -181,6 +181,20 @@ if __name__ == "__main__":
     print(args)
     seed_dict = {'cora': 2377, 'citeseer': 4428, 'pubmed': 3333}
     seed = seed_dict[args['dataset']]
+    if args['dataset'] == 'cora':
+        args['embedding_dim'] = [1433, 512, 7]
+        args['lr'] = 0.008
+        args['weight_decay'] = 8e-5
+    elif args['dataset'] == 'citeseer':
+        args['embedding_dim'] = [3703, 512, 6]
+        args['lr'] = 0.01
+        args['weight_decay'] = 5e-4
+    elif args['dataset'] == 'pubmed':
+        args['embedding_dim'] = [512, 256, 3]
+        args['lr'] = 0.01
+        args['weight_decay'] = 5e-4
+    else:
+        raise Exception("Invalid dataset")
     start = time.clock()
     if args['backbone'] == 'gcn':
         best_acc_val, final_acc_test, final_epoch_list = run_baseline_gcn(args, seed)

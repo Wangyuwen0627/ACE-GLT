@@ -24,7 +24,7 @@ Please follow the instructions below to replicate the results in the paper.
 ### Small-scale datasets
 ```bash
 # baseline (non-pruned cases)
-python small_scale/baseline.py --backbone <BACKBONE> --dataset <DATASET>  --embedding-dim <feature_dim [hidden_dims] output_dims> 
+python small_scale/baseline.py --backbone <BACKBONE> --dataset <DATASET>
 
 # ACE-GLT (GCN)
 python small_scale/glt_gcn.py --dataset <DATASET> --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --mask_epochs 200 --fix_epochs 200 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one
